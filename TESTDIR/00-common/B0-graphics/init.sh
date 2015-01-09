@@ -23,7 +23,8 @@ VALUE4="animation=none"
 
 function replace_value {
 
-    if grep -q "$2\|$4" /etc/xdg/weston/weston.ini ;then
+    if grep -q "$2" /etc/xdg/weston/weston.ini && \
+       grep -q "$4" /etc/xdg/weston/weston.ini ;then
 	echo "$2 and $4 already present"
     else
 	sed -i "s/$1/$2/g" /etc/xdg/weston/weston.ini
